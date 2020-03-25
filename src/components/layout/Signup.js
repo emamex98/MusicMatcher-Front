@@ -1,0 +1,138 @@
+import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+
+export default class Signup extends Component {
+  render() {
+    return (
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /> <br /> <br /> <br /> <br /> <br />
+        <form>
+          <h3>Create account</h3>
+
+          <div className="form-group">
+            <label>Profile Picture</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Choose a photo"
+            />
+          </div>
+          <div className="form-group">
+            <label>Name</label>
+            <input type="text" className="form-control" placeholder="Name" />
+          </div>
+
+          <div className="form-group">
+            <label>Age</label>
+            <input type="sex" className="form-control" placeholder="Age" />
+          </div>
+
+          <div className="form-group">
+            <Form.Group>
+              <Form.Label>Gender</Form.Label>
+              <Col sm={10}>
+                <Form.Check
+                  type="radio"
+                  label="Male"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Female"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios2"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Other"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios3"
+                />
+              </Col>
+            </Form.Group>
+          </div>
+
+          <div className="form-group">
+            <label>Interested in</label>
+            <div className="custom-control custom-checkbox">
+              <div>
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="male-interest-check"
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="male-interest-check"
+                >
+                  Men
+                </label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="female-interest-check"
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="female-interest-check"
+                >
+                  Women
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <Form.Group controlId="age-range-control">
+              <Form.Label>Age range interest</Form.Label>
+              <Form.Control type="range" custom />
+            </Form.Group>
+          </div>
+
+          <div className="form-group">
+            <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Label>City</Form.Label>
+              <Form.Control as="select">
+                <option>Guadalajara</option>
+                <option>Zapopan</option>
+                <option>Tlaquepaque</option>
+                <option>Tonala</option>
+                <option>Tequila</option>
+              </Form.Control>
+            </Form.Group>
+          </div>
+
+          <div className="form-group">
+            <Form.Group controlId="distance-range-control">
+              <Form.Label>Distance range interest</Form.Label>
+              <Form.Control type="range" custom />
+            </Form.Group>
+          </div>
+
+          <Button
+            variant="info"
+            className="sign-up-btn btn-block"
+            type="submit"
+          >
+            Continue
+          </Button>
+        </form>
+      </div>
+    );
+  }
+}
