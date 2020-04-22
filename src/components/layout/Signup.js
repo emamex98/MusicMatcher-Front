@@ -2,32 +2,28 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Image from 'react-bootstrap/Image';
+import Avatar from '../../assets/avatar.png';
 
 export default class Signup extends Component {
   render() {
     return (
       <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br /> <br /> <br /> <br /> <br /> <br />
         <form>
           <h3>Create account</h3>
 
           <div className="form-group">
             <label>Profile Picture</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Choose a photo"
-            />
+                <Col xs={6} md={4}>
+                  <Image id="avatar" src={Avatar} roundedCircle />
+                </Col>
+            <Form>
+              <Form.File
+                id="custom-file"
+                label="Select profile picture"
+                custom
+              />
+            </Form>
           </div>
           <div className="form-group">
             <label>Name</label>
@@ -100,6 +96,13 @@ export default class Signup extends Component {
           <div className="form-group">
             <Form.Group controlId="age-range-control">
               <Form.Label>Age range interest</Form.Label>
+              <div>
+              <p>Min:</p>
+              </div>
+              <Form.Control type="range" custom />
+              <div>
+              <p>Max:</p>
+              </div>
               <Form.Control type="range" custom />
             </Form.Group>
           </div>
@@ -120,6 +123,9 @@ export default class Signup extends Component {
           <div className="form-group">
             <Form.Group controlId="distance-range-control">
               <Form.Label>Distance range interest</Form.Label>
+              <div>
+              <p>Max:</p>
+              </div>
               <Form.Control type="range" custom />
             </Form.Group>
           </div>
