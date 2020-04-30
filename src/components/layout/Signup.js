@@ -94,30 +94,59 @@ export default class Signup extends Component {
           </div>
 
           <div className="form-group">
-            <Form.Group controlId="age-range-control">
-              <Form.Label>Age range interest</Form.Label>
-              <div>
-              <p>Min:</p>
-              </div>
-              <Form.Control type="range" custom />
-              <div>
-              <p>Max:</p>
-              </div>
-              <Form.Control type="range" custom />
+          <Form>
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="name@example.com" />
             </Form.Group>
+            <Form.Group controlId="selectMinAgeForm">
+              <Form.Label>Minimum Age</Form.Label>
+              <Form.Control as="select">
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </Form.Control>
+              </Form.Group>
+              <Form.Group controlId="selectMaxAgeForm">
+              <Form.Label>Maximum Age</Form.Label>
+              <Form.Control as="select">
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </Form.Control>
+              </Form.Group>
+          </Form>
           </div>
 
           <div className="form-group">
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>City</Form.Label>
+          <Form.Group controlId="selectDistanceForm">
+              <Form.Label>Distance range interest</Form.Label>
               <Form.Control as="select">
-                <option>Guadalajara</option>
-                <option>Zapopan</option>
-                <option>Tlaquepaque</option>
-                <option>Tonala</option>
-                <option>Tequila</option>
+                <option>5km</option>
               </Form.Control>
-            </Form.Group>
+              </Form.Group>
           </div>
 
           <div className="form-group">
