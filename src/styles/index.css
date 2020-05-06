@@ -22,8 +22,8 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .navbar-light {
-  background-color: #f8f0f0;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  background-color: #282c34;
+  color: wheat;
 }
 
 .auth-wrapper {
@@ -39,7 +39,6 @@ body, html, .App, #root, .auth-wrapper {
   margin-top: 10%;
   margin-bottom: 1%;
   background: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
@@ -79,6 +78,14 @@ body, html, .App, #root, .auth-wrapper {
 }
 .navbar-brand a{
   font-size: 150%;
+}
+
+.navbar-light .navbar-brand {
+  color:wheat !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: wheat !important;
 }
 
 #avatar{

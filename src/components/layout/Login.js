@@ -4,15 +4,19 @@ import Button from "react-bootstrap/Button";
 export default class Login extends Component {
   render() {
     return (
-      <form>
-        <div className="welcome-header">
-          <h2>Welcome</h2>
-        </div>
+      
+        <form>
+          <div className="auth-inner">
+          <div className="welcome-header">
+            <h2>Welcome</h2>
+          </div>
 
-        <Button variant="info" className="enter-btn btn-block" type="submit">
-          GET STARTED
-        </Button>
-      </form>
+          <Button variant="info" className="enter-btn btn-block" type="submit">
+            GET STARTED
+          </Button>
+          </div>
+        </form>
+     
     );
   }
 }

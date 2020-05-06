@@ -5,6 +5,9 @@ class SignedInLinks extends Component {
     render() {
       return (
           <ul className="navbar-nav ml-auto justify-content-end ">
+            <li className="nav-dashboard">
+                <Link className="nav-link"to={"/dashboard"}>Dashboard</Link>
+            </li>
             <li className="nav-myprofile">
                 <Link className="nav-link"to={"/my-profile"}>My Profile</Link>
             </li>

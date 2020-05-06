@@ -5,6 +5,7 @@ import Avatar from '../../assets/avatar.png';
 
 const UserProfile = () => {
     return (
+        <div className="auth-inner">
         <Card style={{ width: '20rem' }}>
             <Card.Img variant="top" src={Avatar} roundedCircle />
             <Card.Body>
@@ -16,6 +17,7 @@ const UserProfile = () => {
                 <Button variant="primary">Edit Profile</Button>
             </Card.Body>
         </Card>
+        </div>
     )
 }
 export default UserProfile

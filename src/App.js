@@ -9,15 +9,20 @@ import UserProfile from './components/dashboard/UserProfile';
 import Chats from './components/dashboard/Chats';
 
 function App() {
-  return (<Router>
+  return (
+  <Router>
     <div className="App">
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-      <Navbar/>
-      </div>
+      <div className="auth-wrapper">
+        {Route.path!=='/dashboard' ?
+        <div>
+          <Navbar/>
+        </div>
+        : <div></div>
+        }
       </div>
       <Switch>
-        <Route path='/' component={Dashboard}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/dashboard' component={Dashboard}/>
       </Switch>
     </div>
   </Router>

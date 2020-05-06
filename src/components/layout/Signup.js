@@ -8,7 +8,7 @@ import Avatar from '../../assets/avatar.png';
 export default class Signup extends Component {
   render() {
     return (
-      <div>
+      <div className="auth-inner">
         <form>
           <h3>Create account</h3>
 
@@ -145,18 +145,22 @@ export default class Signup extends Component {
               <Form.Label>Distance range interest</Form.Label>
               <Form.Control as="select">
                 <option>5km</option>
+                <option>10km</option>
+                <option>15km</option>
               </Form.Control>
               </Form.Group>
           </div>
 
           <div className="form-group">
-            <Form.Group controlId="distance-range-control">
-              <Form.Label>Distance range interest</Form.Label>
-              <div>
-              <p>Max:</p>
-              </div>
-              <Form.Control type="range" custom />
-            </Form.Group>
+          <Form.Group controlId="selectDistanceForm">
+              <Form.Label>City</Form.Label>
+              <Form.Control as="select">
+                <option>Guadalajara</option>
+                <option>Zapopan</option>
+                <option>Tlaquepaque</option>
+                <option>Tonalá</option>
+              </Form.Control>
+              </Form.Group>
           </div>
 
           <Button
