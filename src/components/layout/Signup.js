@@ -4,6 +4,9 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Image from 'react-bootstrap/Image';
 import { BrowserRouter as Router, Redirect} from "react-router-dom";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default class Signup extends Component {
 
@@ -45,7 +48,7 @@ export default class Signup extends Component {
       //if (data.accessToken != null) {
 
         accessToken = accessToken + data.access_token
-        console.log(accessToken)
+        cookies.set('mm_atoken', data.access_token, { path: '/' });
 
         fetch("https://api.spotify.com/v1/me", {
           method: 'GET',
