@@ -3,9 +3,73 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Image from 'react-bootstrap/Image';
-import Avatar from '../../assets/avatar.png';
+import { BrowserRouter as Router, Redirect} from "react-router-dom";
 
 export default class Signup extends Component {
+
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+    this.state = { 
+      avatar: 'http://localhost:3000/static/media/avatar.e42dbe1d.png',
+      name: 'Name',
+      email: 'name@example.com'
+    };
+  }
+
+  componentDidMount() {
+
+    var uriParams = this.props.location.search.split("=")
+    var code = uriParams[1]
+
+    var redirectUri = 'http%3A%2F%2Flocalhost%3A3000%2Fsign-up'
+    var encodedKeys = 'Basic MTlmYzhhODQzMzAzNGYxNzkwMGQzODMwMTZhZmZhMDY6ZGY3MDM4MjY2MmNlNDQ0MGFmMGM0N2I4YzBmNWU3ODM='
+
+    var accessToken = 'Bearer '
+
+    var bodyStr = 'grant_type=authorization_code'
+      + '&code=' + code
+      + '&redirect_uri=' + redirectUri;
+  
+    fetch("https://accounts.spotify.com/api/token", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": encodedKeys
+      },
+      body: bodyStr
+    })
+    .then(res => res.json())
+    .then(data => {
+
+      //if (data.accessToken != null) {
+
+        accessToken = accessToken + data.access_token
+        console.log(accessToken)
+
+        fetch("https://api.spotify.com/v1/me", {
+          method: 'GET',
+          headers: {
+            "Authorization": "Bearer " + data.access_token
+          }
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data != null){
+            this.setState({avatar: data.images[0].url})
+            this.setState({name: data.display_name})
+            this.setState({email: data.email})
+          }
+        })
+
+      //}
+
+    })
+    .catch(console.log);
+    
+  }
+
   render() {
     return (
       <div className="auth-inner">
@@ -13,26 +77,27 @@ export default class Signup extends Component {
           <h3>Create account</h3>
 
           <div className="form-group">
-            <label>Profile Picture</label>
-                <Col xs={6} md={4}>
-                  <Image id="avatar" src={Avatar} roundedCircle />
-                </Col>
-            <Form>
-              <Form.File
-                id="custom-file"
-                label="Select profile picture"
-                custom
-              />
-            </Form>
+            <Col xs={6} md={4}>
+              { this.state.avatar !== '' && <Image id="avatar" src={this.state.avatar} roundedCircle /> }
+            </Col>
           </div>
           <div className="form-group">
             <label>Name</label>
-            <input type="text" className="form-control" placeholder="Name" />
+            { this.state.name !== 'Name' && <input type="text" className="form-control" defaultValue={this.state.name} /> }
+            { this.state.name === 'Name' && <input type="text" className="form-control" placeholder={this.state.name} /> }
           </div>
 
           <div className="form-group">
+
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              { this.state.email !== 'name@example.com' && <Form.Control type="email" defaultValue={this.state.email} /> }
+              { this.state.email === 'name@example.com' && <Form.Control type="email" placeholder={this.state.email} /> }
+            </Form.Group>
+
             <label>Age</label>
             <input type="sex" className="form-control" placeholder="Age" />
+
           </div>
 
           <div className="form-group">
@@ -90,15 +155,24 @@ export default class Signup extends Component {
                   Women
                 </label>
               </div>
+              <div>
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="other-interest-check"
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="other-interest-check"
+                >
+                  Other
+                </label>
+              </div>
             </div>
           </div>
 
           <div className="form-group">
           <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" />
-            </Form.Group>
             <Form.Group controlId="selectMinAgeForm">
               <Form.Label>Minimum Age</Form.Label>
               <Form.Control as="select">
