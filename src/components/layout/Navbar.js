@@ -7,6 +7,7 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 import UserProfile from '../dashboard/UserProfile';
 import Chats from '../dashboard/Chats';
+import MatchInfo from '../dashboard/MatchInfo';
 import Dashboard from '../dashboard/Dashboard';
 
 class Navbar extends Component {
