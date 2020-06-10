@@ -12,7 +12,7 @@ import Dashboard from '../dashboard/Dashboard';
 class Navbar extends Component {
  
   render() {
-    var userSigned = false;
+    var userSigned = true;
 
     const links = userSigned ? <SignedInLinks/> : <SignedOutLinks/>;
 

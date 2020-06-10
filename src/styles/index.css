@@ -93,3 +93,7 @@ body, html, .App, #root, .auth-wrapper {
   margin-left: 90%;
   margin-bottom: 10px;
 }
+
+.dash-container {
+  margin-top: 100px;
+}

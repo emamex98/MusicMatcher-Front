@@ -7,6 +7,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "pubnub": "^4.28.0",
+    "pubnub-react": "^2.0.0",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0",
     "react-bootstrap-range-slider": "^0.3.1",
